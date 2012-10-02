@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="span9">
+    <h1>Let's Get Started</h1>
+
+    <p>Getting started is easy. We would like to talk to you to customize your storage solution. Please fill out the
+      form below, and send us a message. We'll get in contact with you within one business day. </p>
+
+    <%= simple_form_for @message do |f| %>
+      <%= f.input :name %>
+      <%= f.input :email, input_html: {class: "span6"} %>
+      <%= f.input :phone %>
+      <div class="control-group">
+        <%= f.label :message, "What are your storage needs?  Questions?" %>
+        <div class="control">
+          <%= f.input :message do %>
+            <%= f.text_area :message, class: "span9", rows: 10 %>
+          <% end %>
+        </div>
+      </div>
+      <div class="pull-right">
+        <%= f.submit "Get Started", class: "btn btn-primary btn-large" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="span3">
+    <div class="well">
+      <h3>Our Location</h3>
+      <address>
+        4754 South 500 West<br/>
+        Murray, Utah 84065
+      </address>
+
+      (801) 573-0479
+    </div>
+  </div>
+</div>
+
+
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    $(function () {
+      $("#nav_contact_us").addClass("active");
+    });
+  </script>
+<% end %>

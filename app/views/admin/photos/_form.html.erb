@@ -1,0 +1,18 @@
+<div class="well">
+  <%= simple_form_for [:admin, photo] do |f| %>
+    <%= f.error_messages %>
+    <%= f.input :name %>
+    <%= image_tag(photo.photo_file_url, style: "width: 800px;") if photo.photo_file_url %>
+    <%= f.input :photo_file %>
+    <%= f.hidden_field :photo_file_cache %>
+    <%= f.input :description, input_html: {rows: 3, class: "span6"} %>
+    <%= f.input :is_public %>
+
+    <div class="form-actions">
+      <%= link_to "Cancel", admin_photos_path, class: "btn" %>
+      <div class="pull-right">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

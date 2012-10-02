@@ -1,0 +1,28 @@
+<h1>Our Blog</h1>
+<div class="row">
+  <div class="span12">
+    <p>Ski Boat, Recreation Vehicle, and Small Business overflow storage is what we store in our large spacious storage
+      units. Learn about how to store your assets in our easy access indoor storage units. If you would like to learn
+      more
+      about how to contact us, please click on the contact us link. </p>
+
+    <p><%= link_to "Contact Us", new_message_path, class: "btn btn-primary btn-large pull-right" %></p>
+  </div>
+</div>
+<hr/>
+<% for blog_entry in blog_entries %>
+  <h2><%= link_to blog_entry.title, blog_entry_path(blog_entry.slug)  %>
+    <small><%= friendly_date_and_time(blog_entry.created_at) %></small>
+  </h2>
+  <p><%= raw(blog_entry.body) %></p>
+<% end %>
+
+<%= will_paginate blog_entries, :renderer => BootstrapPagination::Rails, :page_links => false %>
+
+<% content_for :javascript do  %>
+  <script type="text/javascript">
+    $(function(){
+      $("#nav_blog").addClass("active");
+    });
+  </script>
+<% end %>

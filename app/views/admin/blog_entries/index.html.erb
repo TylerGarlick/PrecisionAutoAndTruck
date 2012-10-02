@@ -1,0 +1,22 @@
+<%= render partial: "admin/blog_entries/blog_menu" %>
+<h1>Blog Entries</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Created On</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% for blog_entry in blog_entries %>
+    <tr>
+      <td><%= blog_entry.title %></td>
+      <th><%= blog_entry.created_at.localtime %></th>
+      <th><%= link_to "Edit", edit_admin_blog_entry_path(blog_entry), class: "btn" %></th>
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>

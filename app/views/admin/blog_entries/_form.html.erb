@@ -1,0 +1,13 @@
+<%= simple_form_for [:admin, blog_entry] do |f| %>
+  <%= f.error_messages %>
+  <%= f.input :title, :input_html => {class: "span6"} %>
+  <%= f.input :body, :as => :ckeditor, :label => false, :input_html => {:toolbar => 'Full'} %>
+  <%= f.input :is_public %>
+
+  <div class="form-actions">
+    <%= link_to "Cancel", admin_blog_entries_path, class: "btn" %>
+    <div class="pull-right">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
